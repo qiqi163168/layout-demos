@@ -3,10 +3,28 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <div @click="setNewsApi">hello</div>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  // data () {
+  //   newsListShow: null
+  // },
+  methods: {
+    setNewsApi () {
+      this.$http.post('/news', 'type=top&key=123456').then(res => {
+        this.newsListShow = res.data.data
+        console.log(this.newsListShow)
+      })
+    }
+  }
+}
+</script>
+
 <style lang="stylus">
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
