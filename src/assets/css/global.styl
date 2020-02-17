@@ -1,0 +1,138 @@
+@import './variable.styl'
+@import './element.styl'
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+@media screen {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-device-width: 1366px) {
+  html {
+    font-size: 12px;
+    & .warpper {
+      min-width: 1000px;
+      background: yellow;
+    }
+  }
+}
+
+@media screen and (min-device-width: 1600px) {
+  html {
+    font-size: 14px;
+    & .warpper {
+      min-width: 1280px;
+      background: red;
+    }
+  }
+}
+
+@media screen and (min-device-width: 1920px) {
+  html {
+    font-size: 16px;
+    & .warpper {
+      min-width: 1600px;
+      background: blue;
+    }
+  }
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+label {
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #41474e;
+}
+
+/* 滚动条的内层滑轨背景颜色 */
+
+::-webkit-scrollbar-track {
+  background-color: #41474e;
+}
+
+/* 滚动条的外层滑轨背景颜色 */
+
+::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: #16f5ff;
+  box-shadow: 0 1px 3px 0 #999;
+  border-radius: 3px;
+}
+
+/* 滚动条的内层滑块颜色 */
+
+::-webkit-scrollbar-button {
+  display: none;
+}

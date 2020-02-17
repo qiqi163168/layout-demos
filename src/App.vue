@@ -1,11 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!--  <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
       <div @click="setNewsApi">hello</div>
     </div>
-    <router-view/>
+    <router-view/> -->
+    <div class='warpper'>
+      <el-container>
+        <el-header >Header</el-header>
+        <el-container>
+          <el-aside width="200px" style="background: green">Aside</el-aside>
+          <el-main>Main</el-main>
+        </el-container>
+      </el-container>
+    </div>
   </div>
 </template>
 
@@ -26,6 +35,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@import './assets/css/global.styl'
+
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
