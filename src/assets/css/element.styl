@@ -1,3 +1,4 @@
+@import './variable.styl'
 /* 
 * element UI 覆写样式
 */
@@ -11,20 +12,20 @@
 }
 
 .el-aside {
-  background-color: #D3DCE6;
   color: #333;
+  background-color: $color-bg-dark;
   text-align: left;
   // line-height: 200px;
   max-width: 200px !important;
-  overflow: hidden;
-}
+  min-height: 100%;
+} 
 
 .el-main {
-  background-color: #E9EEF3;
+  background-color: $color-bg-dark;;
   color: #333;
   text-align: center;
   // line-height: 160px;
-  padding: 8px !important;
+  padding: 8px 8px 8px 0px !important;
 }
 
 body > .el-container {

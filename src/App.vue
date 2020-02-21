@@ -8,6 +8,7 @@
     <router-view/> -->
     <div class='warpper'>
       <el-container>
+        <!-- header 部分 -->
         <el-header>
           <div class="header">
             <div class="header-left">
@@ -21,7 +22,9 @@
             </div>
           </div>
         </el-header>
+        <!-- 侧边导航与主体部分 -->
         <el-container>
+          <!-- 侧边导航部分 -->
           <el-aside :width="manuWidth">
             <div class="aside-container">
               <div class="menu-control">
@@ -32,40 +35,67 @@
                 <el-radio-button :label="false">展开</el-radio-button>
                 <el-radio-button :label="true">收起</el-radio-button>
               </el-radio-group> -->
-              <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+              <el-menu default-active="1-1"
+                class="el-menu-vertical-demo"
+                @open="handleOpen"
+                @close="handleClose"
+                :collapse="isCollapse">
                 <el-submenu index="1">
                   <template slot="title">
-                    <i class="el-icon-location"></i>
+                    <div class="icon-nav icon-nav-01"></div>
                     <span slot="title">导航一</span>
                   </template>
-                  <el-menu-item-group>
-                    <span slot="title">分组一</span>
-                    <el-menu-item index="1-1">选项1</el-menu-item>
-                    <el-menu-item index="1-2">选项2</el-menu-item>
-                  </el-menu-item-group>
-                  <el-menu-item-group title="分组2">
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                  </el-menu-item-group>
-                  <el-submenu index="1-4">
-                    <span slot="title">选项4</span>
-                    <el-menu-item index="1-4-1">选项1</el-menu-item>
-                  </el-submenu>
+                  <el-menu-item index="1-1"><div class="icon-nav-small icon-nav-small-01"></div>选项1</el-menu-item>
+                  <el-menu-item index="1-2"><div class="icon-nav-small icon-nav-small-01"></div>选项2</el-menu-item>
                 </el-submenu>
-                <el-menu-item index="2">
-                  <i class="el-icon-menu"></i>
-                  <span slot="title">导航二</span>
-                </el-menu-item>
-                <el-menu-item index="3" disabled>
-                  <i class="el-icon-document"></i>
-                  <span slot="title">导航三</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                  <i class="el-icon-setting"></i>
-                  <span slot="title">导航四</span>
-                </el-menu-item>
+
+                <el-submenu index="2">
+                  <template slot="title">
+                    <div class="icon-nav icon-nav-02"></div>
+                    <span slot="title">导航二</span>
+                  </template>
+                  <el-menu-item index="2-1"><div class="icon-nav-small icon-nav-small-02"></div>选项1</el-menu-item>
+                  <el-menu-item index="2-2"><div class="icon-nav-small icon-nav-small-02"></div>选项2</el-menu-item>
+                </el-submenu>
+
+                <el-submenu index="3">
+                  <template slot="title">
+                    <div class="icon-nav icon-nav-03"></div>
+                    <span slot="title">导航三</span>
+                  </template>
+                  <el-menu-item index="3-1"><div class="icon-nav-small icon-nav-small-03"></div>选项1</el-menu-item>
+                  <el-menu-item index="3-2"><div class="icon-nav-small icon-nav-small-03"></div>选项2</el-menu-item>
+                </el-submenu>
+
+                <el-submenu index="4">
+                  <template slot="title">
+                    <div class="icon-nav icon-nav-04"></div>
+                    <span slot="title">导航四</span>
+                  </template>
+                  <el-menu-item index="4-1"><div class="icon-nav-small icon-nav-small-04"></div>选项1</el-menu-item>
+                  <el-menu-item index="4-2"><div class="icon-nav-small icon-nav-small-04"></div>选项2</el-menu-item>
+                </el-submenu>
+                <el-submenu index="5">
+                  <template slot="title">
+                    <div class="icon-nav icon-nav-05"></div>
+                    <span slot="title">导航四</span>
+                  </template>
+                  <el-menu-item index="5-1"><div class="icon-nav-small icon-nav-small-05"></div>选项1</el-menu-item>
+                  <el-menu-item index="5-2"><div class="icon-nav-small icon-nav-small-05"></div>选项2</el-menu-item>
+                </el-submenu>
+                <el-submenu index="6">
+                  <template slot="title">
+                    <div class="icon-nav icon-nav-06"></div>
+                    <span slot="title">导航四</span>
+                  </template>
+                  <el-menu-item index="6-1"><div class="icon-nav-small icon-nav-small-06"></div>选项1</el-menu-item>
+                  <el-menu-item index="6-2"><div class="icon-nav-small icon-nav-small-06"></div>选项2</el-menu-item>
+                </el-submenu>
               </el-menu>
             </div>
           </el-aside>
+
+          <!-- 主体部分 -->
           <el-main>
             <div class="main-container">这里是地图</div>
           </el-main>
@@ -93,10 +123,10 @@ export default {
     isCollapse () {
       if (this.isCollapse === true) {
         this.manuWidth = 54
-        document.getElementsByClassName('aside-container').style.width = '24px'
+        document.getElementsByClassName('aside-container').style.width = '54px'
       } else {
         this.manuWidth = 200
-        document.getElementsByClassName('aside-container').style.width = '170px'
+        document.getElementsByClassName('aside-container').style.width = '200px'
       }
     }
   },
@@ -123,67 +153,69 @@ export default {
 <style lang="stylus">
 @import './assets/css/global.styl'
 
-.main-container {
-  background: pink;
-  height: 100%;
-  width: 100%;
-}
-
+// header部分
 .header {
   position: relative;
+
+  .header-left {
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    // width: 200px;
+    background: red;
+
+    img {
+      width: 32px;
+      height:32px;
+      background:yellow;
+      float: left;
+      margin-right: 20px;
+    }
+
+    .header-title {
+      float: left;
+      font-family: PingFangSC-Medium;
+      font-size: 24px;
+      color: #FFFFFF;
+      letter-spacing: 0;
+      text-align: justify;
+    }
+  }
+
+  .header-right {
+    // background: blue;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    .el-badge {
+      vertical-align: baseline !important;
+    }
+
+    img {
+      margin-left: 12px;
+    }
+
+    .el-badge__content.is-fixed {
+      top: 24px;
+      right: 20px;
+    }
+  }
 }
 
-.header-left {
-  position: absolute;
-  left: 0px;
-  height: 100%;
-  // width: 200px;
-  background: red;
-
-  img {
-    width: 32px;
-    height:32px;
-    background:yellow;
-    float: left;
-    margin-right: 20px;
-  }
-
-  .header-title {
-    float: left;
-    font-family: PingFangSC-Medium;
-    font-size: 24px;
-    color: #FFFFFF;
-    letter-spacing: 0;
-    text-align: justify;
-  }
-}
-
-.header-right {
-  // background: blue;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-
-  .el-badge {
-    vertical-align: baseline !important;
-  }
-
-  img {
-    margin-left: 12px;
-  }
-
-  .el-badge__content.is-fixed {
-    top: 24px;
-    right: 20px;
-  }
-}
-
+// 左侧菜单
 .aside-container {
-  padding: 20px 14px 20px 16px;
+  padding: 20px 0 20px 0;
 
   img {
     width: 24px;
     height: 24px;
+    margin-left: 14px;
+    margin-right: 16px;
+  }
+
+  .el-menu {
+    border: none;
   }
 
   .menu-control {
@@ -191,20 +223,165 @@ export default {
   }
 
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 170px;
-    min-height: 400px;
+    width: 200px;
+  }
+
+  .el-submenu {
+    background: $color-bg-dark;
   }
 
   .el-submenu .el-menu-item {
-    min-width: 170px;
+    min-width: 200px;
+    height: 48px;
+    line-height: 48px;
+  }
+
+  .el-menu .el-menu--inline {
+    background: $color-bg-middle;
+  }
+
+  .el-submenu__title:focus, .el-submenu__title:hover {
+    background-color: $color-bg-middle;
   }
 
   .el-menu--collapse {
-    width: 24px;
+    width: 54px;
+
+    li {
+      height: 40px;
+      line-height: 40px;
+    }
   }
 
-  .el-tooltip {
+  .el-submenu__title {
     padding: 0px !important;
+    height: 48px;
+    line-height: 48px;
+  }
+
+  // 一级icon图片类
+  .icon-nav {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 8px;
+    margin-left: 14px;
+  }
+  // 未展开前icon
+  .icon-nav-01 {
+    background-image: url('./assets/image/font/menu-icon.png');
+  }
+  .icon-nav-02 {
+    background-image: url('./assets/image/font/menu-icon.png');
+  }
+  .icon-nav-03 {
+    background-image: url('./assets/image/font/menu-icon.png');
+  }
+  .icon-nav-04 {
+    background-image: url('./assets/image/font/menu-icon.png');
+  }
+  .icon-nav-05 {
+    background-image: url('./assets/image/font/menu-icon.png');
+  }
+  .icon-nav-06 {
+    background-image: url('./assets/image/font/menu-icon.png');
+  }
+  // 展开后icon
+  .is-active.is-opened {
+    .icon-nav-01 {
+      background-image: url('./assets/image/font/menu-icon-is-active.png');
+    }
+    .icon-nav-02 {
+      background-image: url('./assets/image/font/menu-icon-is-active.png');
+    }
+    .icon-nav-03 {
+      background-image: url('./assets/image/font/menu-icon-is-active.png');
+    }
+    .icon-nav-04 {
+      background-image: url('./assets/image/font/menu-icon-is-active.png');
+    }
+    .icon-nav-05 {
+      background-image: url('./assets/image/font/menu-icon-is-active.png');
+    }
+    .icon-nav-06 {
+      background-image: url('./assets/image/font/menu-icon-is-active.png');
+    }
+  }
+
+  // 二级icon图片类
+  .icon-nav-small {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .icon-nav-small-01 {
+    background-image: url('./assets/image/font/menu-icon-small.png');
+  }
+  .icon-nav-small-02 {
+    background-image: url('./assets/image/font/menu-icon-small.png');
+  }
+  .icon-nav-small-03 {
+    background-image: url('./assets/image/font/menu-icon-small.png');
+  }
+  .icon-nav-small-04 {
+    background-image: url('./assets/image/font/menu-icon-small.png');
+  }
+  .icon-nav-small-05 {
+    background-image: url('./assets/image/font/menu-icon-small.png');
+  }
+  .icon-nav-small-06 {
+    background-image: url('./assets/image/font/menu-icon-small.png');
+  }
+
+  .el-menu-item.is-active {
+    .icon-nav-small-01 {
+      background-image: url('./assets/image/font/menu-icon-small-is-active.png');
+    }
+    .icon-nav-small-02 {
+      background-image: url('./assets/image/font/menu-icon-small-is-active.png');
+    }
+    .icon-nav-small-03 {
+      background-image: url('./assets/image/font/menu-icon-small-is-active.png');
+    }
+    .icon-nav-small-04 {
+      background-image: url('./assets/image/font/menu-icon-small-is-active.png');
+    }
+    .icon-nav-small-05 {
+      background-image: url('./assets/image/font/menu-icon-small-is-active.png');
+    }
+    .icon-nav-small-06 {
+      background-image: url('./assets/image/font/menu-icon-small-is-active.png');
+    }
   }
 }
+
+// 左侧菜单 popup
+.el-menu--popup-right-start {
+  margin-left: 3px !important;
+  margin-right: 0px !important;
+  min-width: 120px !important;
+}
+
+.el-menu--popup {
+  padding: 0 !important;
+
+  li.el-menu-item {
+    height: 42px;
+    line-height: 18px;
+    padding: 12px 0 12px 8px !important;
+    background: $color-bg-middle;
+  }
+}
+
+// 主体部分
+.main-container {
+  background: pink;
+  height: 100%;
+  width: 100%;
+}
+
+// 主体内部
+
 </style>
