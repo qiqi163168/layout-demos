@@ -12,49 +12,47 @@
         <el-header>
           <div class="header">
             <div class="header-left">
-              <img src="@/assets/image/font/font-header.png" style="width: 32px; height:32px; background:yellow;">
+              <img src="@/assets/image/font/font-header.png" style="width: 32px; height:32px;">
               <div class="header-title">{{pageTitle}}</div>
             </div>
             <div class="header-right">
-              <el-badge :value="alarmCount" class="header-badage"><img src="@/assets/image/font/font-header.png" style="width: 32px; height:32px; background:yellow;"></el-badge>
-              <img src="@/assets/image/font/font-header.png" style="width: 32px; height:32px; background:yellow;">
-              <img src="@/assets/image/font/font-header.png" style="width: 32px; height:32px; background:yellow;">
+              <el-badge :value="alarmCount" class="header-badage"><img src="@/assets/image/font/font-header.png" style="width: 32px; height:32px;"></el-badge>
+              <img src="@/assets/image/font/font-header.png" style="width: 32px; height:32px;">
+              <img src="@/assets/image/font/font-header.png" style="width: 32px; height:32px;">
             </div>
           </div>
         </el-header>
         <!-- 侧边导航与主体部分 -->
         <el-container>
           <!-- 侧边导航部分 -->
-          <el-aside :width="manuWidth">
+          <el-aside :width="menuWidth">
             <div class="aside-container">
-              <div class="menu-control">
+              <div class="menu-control" >
                 <img v-if="!isCollapse" class="image right-float" @click="controlMenu" src="@/assets/image/font/font-header.png"/>
                 <img class="image right-float" v-else @click="controlMenu" src="@/assets/image/font/font-header.png"/>
               </div>
-              <!-- <el-radio-group v-model="isCollapse">
-                <el-radio-button :label="false">展开</el-radio-button>
-                <el-radio-button :label="true">收起</el-radio-button>
-              </el-radio-group> -->
               <el-menu default-active="1-1"
                 class="el-menu-vertical-demo"
                 @open="handleOpen"
                 @close="handleClose"
-                :collapse="isCollapse">
-                <el-submenu index="1">
-                  <template slot="title">
-                    <div class="icon-nav icon-nav-01"></div>
+                :collapse="isCollapse"
+                text-color="#979AB3"
+                active-text-color="#FFFFFF"
+                :default-openeds="['1','2','3','4','5','6']">
+
+                <router-link to="/test1">
+                  <el-menu-item index="1" class="no-submenu">
+                    <i class="icon-nav icon-nav-01"></i>
                     <span slot="title">导航一</span>
-                  </template>
-                  <el-menu-item index="1-1"><div class="icon-nav-small icon-nav-small-01"></div>选项1</el-menu-item>
-                  <el-menu-item index="1-2"><div class="icon-nav-small icon-nav-small-01"></div>选项2</el-menu-item>
-                </el-submenu>
+                  </el-menu-item>
+                </router-link>
 
                 <el-submenu index="2">
                   <template slot="title">
                     <div class="icon-nav icon-nav-02"></div>
                     <span slot="title">导航二</span>
                   </template>
-                  <el-menu-item index="2-1"><div class="icon-nav-small icon-nav-small-02"></div>选项1</el-menu-item>
+                  <router-link to="/test2"><el-menu-item index="2-1"><div class="icon-nav-small icon-nav-small-02"></div>选项1</el-menu-item></router-link>
                   <el-menu-item index="2-2"><div class="icon-nav-small icon-nav-small-02"></div>选项2</el-menu-item>
                 </el-submenu>
 
@@ -97,7 +95,9 @@
 
           <!-- 主体部分 -->
           <el-main>
-            <div class="main-container">这里是地图</div>
+            <div class="main-container">
+              <router-view></router-view>
+            </div>
           </el-main>
         </el-container>
       </el-container>
@@ -106,7 +106,12 @@
 </template>
 
 <script>
+import containerCommon from '@/views/components/container/container-common'
+
 export default {
+  components: {
+    'container-common': containerCommon
+  },
   data () {
     return {
       // newsListShow: null
@@ -115,9 +120,23 @@ export default {
       // 警报数量
       alarmCount: 12,
       // 菜单是否折叠
-      isCollapse: true,
-      manuWidth: 54
+      isCollapse: false,
+      menuWidth: 54,
+      // 菜单高度控制
+      clientHeight: '',
+      menuHeight: ''
     }
+  },
+  mounted () {
+    // // 获取浏览器可视区域高度
+    // this.clientHeight = document.body.clientHeight
+    // this.menuHeight = this.clientHeight - 50
+    // document.getElementById('menuHeight').style.height = this.menuHeight + 'px'
+    // window.onresize = () => {
+    //   this.clientHeight = document.body.clientHeight
+    //   this.menuHeight = this.clientHeight - 50
+    //   document.getElementById('menuHeight').style.height = this.menuHeight + 'px'
+    // }
   },
   watch: {
     isCollapse () {
@@ -162,12 +181,10 @@ export default {
     left: 0px;
     height: 100%;
     // width: 200px;
-    background: red;
 
     img {
       width: 32px;
       height:32px;
-      background:yellow;
       float: left;
       margin-right: 20px;
     }
@@ -214,6 +231,18 @@ export default {
     margin-right: 16px;
   }
 
+  .no-submenu.el-menu-item {
+    padding: 0 !important;
+    height: 48px;
+    line-height: 48px;
+    background: #2b324e;
+    text-align: left;
+
+    .el-tooltip {
+      padding: 0 !important;
+    }
+  }
+
   .el-menu {
     border: none;
   }
@@ -241,7 +270,21 @@ export default {
   }
 
   .el-submenu__title:focus, .el-submenu__title:hover {
-    background-color: $color-bg-middle;
+    background-color: #2b324e;
+    color: #ffffff !important;
+  }
+  .el-menu-item:focus, .el-menu-item:hover{
+    background-color: #454b6d;
+    color: #ffffff !important;
+  }
+  .el-menu-item:focus {
+    background: #3D7CFF;
+  }
+  .el-submenu.is-active .el-submenu__title {
+    color: #ffffff !important;
+  }
+  .el-menu-item.is-active {
+    background: #3D7CFF !important;
   }
 
   .el-menu--collapse {
@@ -250,6 +293,13 @@ export default {
     li {
       height: 40px;
       line-height: 40px;
+    }
+
+    a {
+      li {
+        height: 40px !important;
+        line-height: 40px !important;
+      }
     }
   }
 
@@ -377,11 +427,9 @@ export default {
 
 // 主体部分
 .main-container {
-  background: pink;
-  height: 100%;
+  background: $color-bg-dark;
+  border-radius: 6px;
   width: 100%;
+  height: 100%;
 }
-
-// 主体内部
-
 </style>
