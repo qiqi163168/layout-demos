@@ -82,29 +82,23 @@ export default {
   created () {},
   mounted () {
     // 获取浏览器可视区域高度
-    this.tableToggleHeight()
+    this.tableToggleChange()
 
     window.onresize = () => {
-      this.tableToggleHeight()
+      this.tableToggleChange()
     }
   },
   watch: {
-    // // 如果clientHeight 发生改变，这个函数就会运行
-    // clientHeight () {
-    //   this.changeFixed(this.clientHeight)
-    // }
+    tableToggleHeight () {
+      this.tableToggleChange()
+    },
   },
   methods: {
-    tableToggleHeight () {
+    tableToggleChange () {
       this.clientHeight = document.body.clientHeight
       this.searchBoxHeight = document.getElementById('search-warp').offsetHeight
       this.tableHeight = this.clientHeight - this.searchBoxHeight - 8 * 2 - 50 * 2
-    },
-    // changeFixed (clientHeight) {
-    //   if (this.$refs.page) {
-    //     this.$refs.page.style.minHeight = clientHeight - 100 + 'px'
-    //   }
-    // }
+    }
   }
 }
 </script>
