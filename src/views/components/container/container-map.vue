@@ -12,7 +12,7 @@ export default {
     return {
       // 容器高度自适应
       clientHeight: '',
-      containerHeight: '',
+      containerHeight: ''
     }
   },
   computed: {},
@@ -20,7 +20,7 @@ export default {
   mounted () {
     // 容器高度自适应
     this.heightChange()
-  
+    // 浏览器伸缩监控
     window.onresize = () => {
       this.heightChange()
     }

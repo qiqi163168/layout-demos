@@ -91,7 +91,7 @@ export default {
   watch: {
     tableToggleHeight () {
       this.tableToggleChange()
-    },
+    }
   },
   methods: {
     tableToggleChange () {

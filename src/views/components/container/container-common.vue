@@ -58,6 +58,7 @@ export default {
 
   .search-warp {
     background: #f2f2f2;
+    
   }
   .table-wrap {
     margin: 0 16px 0;

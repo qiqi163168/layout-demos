@@ -17,7 +17,7 @@ export default {
   props: {},
   data () {
     return {
-      height: 50
+      height: 52
     }
   },
   computed: {},
@@ -27,12 +27,12 @@ export default {
   methods: {
     heightToggle () {
       let _height = this.height
-      if (_height === 50) {
-        document.getElementById('searchbox-container-common').style.height = '100px'
+      if (_height === 52) {
+        document.getElementById('searchbox-container-common').style.height = '100%'
         this.height = 100
       } else {
-        document.getElementById('searchbox-container-common').style.height = '50px'
-        this.height = 50
+        document.getElementById('searchbox-container-common').style.height = '52px'
+        this.height = 52
       }
       // 重新计算tableHeight
       this.tableHeightChange()
@@ -47,6 +47,8 @@ export default {
 
 <style lang="stylus">
 #searchbox-container-common {
-  height: 50px;
+  padding: 0px 16px 12px;
+  background: pink;
+  height: 52px;
 }
 </style>

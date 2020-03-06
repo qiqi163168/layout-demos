@@ -106,12 +106,8 @@
 </template>
 
 <script>
-import containerCommon from '@/views/components/container/container-common'
-
 export default {
-  components: {
-    'container-common': containerCommon
-  },
+  components: {},
   data () {
     return {
       // newsListShow: null
@@ -233,8 +229,8 @@ export default {
 
   .no-submenu.el-menu-item {
     padding: 0 !important;
-    height: 48px;
-    line-height: 48px;
+    // height: 48px;
+    // line-height: 48px;
     background: #2b324e;
     text-align: left;
 
@@ -261,8 +257,8 @@ export default {
 
   .el-submenu .el-menu-item {
     min-width: 200px;
-    height: 48px;
-    line-height: 48px;
+    // height: 48px;
+    // line-height: 48px;
   }
 
   .el-menu .el-menu--inline {
@@ -305,8 +301,8 @@ export default {
 
   .el-submenu__title {
     padding: 0px !important;
-    height: 48px;
-    line-height: 48px;
+    // height: 48px;
+    // line-height: 48px;
   }
 
   // 一级icon图片类
